@@ -1,0 +1,234 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    // global key bindings
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrev"
+    }
+  },
+  {
+    "context": "Menu || Picker",
+    "bindings": {
+      // "ctrl-k": ["workspace::SendKeystrokes", "up"],
+      // "ctrl-j": "menu::SelectNext",
+      // "ctrl-k": "menu::SelectPrev"
+      // "ctrl-k": "menu::SelectPrev"
+      // "ctrl-k": ["workspace::SendKeystrokes", "up"]
+      // "ctrl-k": ["workspace::SendKeystrokes", "up"]
+      // "ctrl-k": "editor::MoveUp"
+      // "ctrl-k": "search::PreviousHistoryQuery"
+      // "ctrl-k": "vim::Up"
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  // {
+  //   "context": "Workspace",
+  //   "bindings": {
+  //     "ctrl-j": "menu::SelectNext",
+  //     "ctrl-k": "menu::SelectPrev"
+  //     // "shift shift": "file_finder::Toggle"
+  //   }
+  // },
+  {
+    "context": "Editor",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+      "ctrl-u": ["workspace::SendKeystrokes", "1 5 k z z"],
+      "ctrl-d": ["workspace::SendKeystrokes", "1 5 j z z"],
+      "space v c": "editor::OpenContextMenu",
+      "space v h": "editor::Hover",
+      "space v a": "editor::ToggleCodeActions"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+    "bindings": {
+      "space e": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "space e": "workspace::ToggleLeftDock",
+      "ctrl-d": [
+        "workspace::SendKeystrokes",
+        "j j j j j j j j j j j j j j j j j j j j"
+      ],
+      "ctrl-u": [
+        "workspace::SendKeystrokes",
+        "k k k k k k k k k k k k k k k k k k k k"
+      ],
+      "+": ["vim::ResizePane", "Lengthen"]
+      // "enter": [
+      //   // "project_panel::OpenFile",
+      //   "workspace::SendKeystrokes"
+      //   // "o space e"
+      //   // "workspace::ToggleLeftDock"
+      // ]
+    }
+  },
+  {
+    "context": "!Editor && TabSwitcher",
+    "bindings": {
+      "ctrl-j": ["workspace::SendKeystrokes", "down"]
+      // "ctrl-k": ["workspace::SendKeystrokes", "up"]
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "ctrl-k": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // "ctrl-k": null
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      // Remove to void register
+      "space d": [
+        "editor::Delete",
+        {
+          "register": "void"
+        }
+      ],
+      // Paste to void register
+      "space p": [
+        "editor::Paste",
+        {
+          "register": "void"
+        }
+      ]
+      // "p": "vim::Paste"
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space s v": "pane::SplitVertical",
+      "space q": "pane::CloseActiveItem"
+    }
+  },
+  // {
+  //   "context": "VimControl && !menu",
+  //   "bindings": {
+
+  //   }
+  // },
+  // {
+  //   "context": "ProjectPanel && not_editing",
+  //   "bindings": {
+  //     "o": ["project_panel::OpenPermanent", "workspace::ToggleLeftDock"],
+  //     "enter": ["project_panel::OpenPermanent", "workspace::ToggleLeftDock"]
+  //   }
+  // }
+  // {
+  //   // netrw compatibility
+  //   "context": "ProjectPanel && not_editing",
+  //   "bindings": {
+  //     // ":": "command_palette::Toggle",
+  //     // "%": "project_panel::NewFile",
+  //     // "/": "project_panel::NewSearchInDirectory",
+  //     // "d": "project_panel::NewDirectory",
+  //     "enter": "project_panel::OpenPermanent",
+  //     // "escape": "project_panel::ToggleFocus",
+  //     // "h": "project_panel::CollapseSelectedEntry",
+  //     // "j": "menu::SelectNext",
+  //     // "k": "menu::SelectPrev",
+  //     // "l": "project_panel::ExpandSelectedEntry",
+  //     // "o": ["project_panel::Open", "workspace::CloseAllDocks"]
+  //     "o": ["project_panel::Open", "workspace::ToggleLeftDock"]
+  //     // "shift-d": "project_panel::Delete",
+  //     // "shift-r": "project_panel::Rename",
+  //     // "t": "project_panel::OpenPermanent",
+  //     // "v": "project_panel::OpenPermanent",
+  //     // "p": "project_panel::Open",
+  //     // "x": "project_panel::RevealInFileManager",
+  //     // "s": "project_panel::OpenWithSystem",
+  //     // "] c": "project_panel::SelectNextGitEntry",
+  //     // "[ c": "project_panel::SelectPrevGitEntry",
+  //     // "] d": "project_panel::SelectNextDiagnostic",
+  //     // "[ d": "project_panel::SelectPrevDiagnostic",
+  //     // "}": "project_panel::SelectNextDirectory",
+  //     // "{": "project_panel::SelectPrevDirectory",
+  //     // "shift-g": "menu::SelectLast",
+  //     // "g g": "menu::SelectFirst",
+  //     // "-": "project_panel::SelectParent",
+  //     // "ctrl-6": "pane::AlternateFile"
+  //   }
+  // }
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "g d": "editor::GoToDefinition",
+      "g i": "editor::GoToImplementation"
+      // // put key-bindings here if you want them to work only in normal mode
+      // // Window movement bindings
+      // // Ctrl jklk to move between panes
+      // "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      // "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      // "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      // "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+
+      // // +LSP
+      // "space c a": "editor::ToggleCodeActions",
+      // "space .": "editor::ToggleCodeActions",
+      // "space c r": "editor::Rename",
+      // "g d": "editor::GoToDefinition",
+      // "g D": "editor::GoToDefinitionSplit",
+      // "g i": "editor::GoToImplementation",
+      // "g I": "editor::GoToImplementationSplit",
+      // "g t": "editor::GoToTypeDefinition",
+      // "g T": "editor::GoToTypeDefinitionSplit",
+      // "g r": "editor::FindAllReferences",
+      // "] d": "editor::GoToDiagnostic",
+      // "[ d": "editor::GoToPrevDiagnostic",
+      // // TODO: Go to next/prev error
+      // "] e": "editor::GoToDiagnostic",
+      // "[ e": "editor::GoToPrevDiagnostic",
+      // // Symbol search
+      // "s s": "outline::Toggle",
+      // "s S": "project_symbols::Toggle",
+      // // Diagnostic
+      // "space x x": "diagnostics::Deploy",
+
+      // // +Git
+      // // Git prev/next hunk
+      // "] h": "editor::GoToHunk",
+      // "[ h": "editor::GoToPrevHunk",
+
+      // // TODO: git diff is not ready yet, refer https://github.com/zed-industries/zed/issues/8665#issuecomment-2194000497
+
+      // // + Buffers
+      // // Switch between buffers
+      // "shift-h": "pane::ActivatePrevItem",
+      // "shift-l": "pane::ActivateNextItem",
+      // // Close active panel
+      // "shift-q": "pane::CloseActiveItem",
+      // "ctrl-q": "pane::CloseActiveItem",
+      // "space b d": "pane::CloseActiveItem",
+      // // Close other items
+      // "space b o": "pane::CloseInactiveItems",
+      // // Save file
+      // "ctrl-s": "workspace::Save",
+      // // File finder
+      // "space space": "file_finder::Toggle",
+      // // Project search
+      // "space /": "pane::DeploySearch",
+      // // TODO: Open other files
+      // // Show project panel with current file
+      // "space e": "pane::RevealInProjectPanel",
+    }
+  }
+]
